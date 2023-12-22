@@ -1,0 +1,148 @@
+todo:
+Login usuari i associar sessió a usuari + les dades de carrito, redirigir usari a la pagina d'inici on tingui menú d'usuari
+validacio del client(feta)
+validar dades de registre amb filter_var
+Filtratge dades de les categories
+Cabas visible tota la web
+Pagina de cabas
+Afegir productes al cabas 
+
+dj
+
+Afegir boto de confirmació de comanda a la paginas de cabas (desar comanda a BBDD, buidar carro "mourel a confirmació comanda fet" ,redirigir a pagina de comanda feta), en el boto de confirmar comanda no funcional si no iniciada sessió, 
+
+Realitzar pagina confirmació de comanda amb tot el que hi havia al cabas
+
+fer menú desplegable del meu compte 
+
+al donar al meu compte poder editar dades, mostran la foto daquest del usuari i poder penjar una foto d'usari nova
+
+Veure comandes del usuari en cuestió 
+
+
+
+
+
+profe: kevin chow
+user: tdiw-b3
+Password: hAcCa5PF
+
+snake_case para campos de sql
+
+Pensar header, Listado de categorias,
+Login i registro.
+CSS empezar a modificar
+
+
+Model:
+
+  -m_conecta_bd.php
+  -m_query_functions.php (fichero con todas las queries)
+ 
+.Productes-Categories
+  -Obtenir totes les categories (m_get_categories())
+  -Obtenir tots els Productes d'una categoria (m_get_all_products_by_category(category_id))
+  -Obtenir un producte amb una ID especifica (m_get_product_by_id(product_id))
+
+.Usuari
+  -Insertar usuari BBDD(m_insert_user(datosUsuario))
+  -Verificar un usuari (m_validate_user(datosusuario))
+
+
+vista: 
+-vista de productes per categoria (v_products_by_category.php)
+-vista detall producte (v_product_detail.php)
+-vista Login (v_login.php)
+-vista registre (v_register.php)
+-vista el meu conte (v_my_account.php)
+-vista inicial de la web(v_initial_page.php)
+
+
+
+
+index.php
+
+Accion => null
+default: web por defecto -> Controlador(initial_page.php)
+
+Accion => GetProductes, ID = IdCategoria -> Controlador (get_productes.php)
+Accion => GetProductDetail, ID = IDProducto -> Controlador(product_detail.php)
+
+Accion => Registro -> Controlador(Register_page.php)
+
+Accion => Realizar_Registro ->Controlador(Register_action.php)
+
+Accion => Login -> Controlador(Login_page.php)
+
+Accion => Realizar_Login -> Controlador(Login_action.php)
+
+Controladors:
+
+-initial_page.php:
+  
+  modelos:
+    ->m_conecta_bd.php
+    ->m_query_functions.php (fichero con todas las queries)
+       (m_get_categories())
+   vistas:
+     ->v_initial_page.php
+
+   
+ -get_productes.php:
+     
+    modelos:(conecta_bd i query functions per descontat)
+     ->m_get_all_products_by_category(category_id) 
+
+    vistas:
+     -v_products_by_category.php
+
+
+  -product_detail.php
+     -modelo: 
+     ->m_get_product_by_id(product_id)
+
+     -vista:
+     ->v_product_detail.php
+  
+
+  -Register_page.php:
+
+    -vista: v_register.php
+
+  -Login_page.php:
+     -vista: v_login.php
+
+  Register_action.php:
+
+    modelo:
+      
+      -Verificar un usuari (m_validate_user(datosusuario)) -> para no insertar si existe
+      -Insertar usuari BBDD(m_insert_user(datosUsuario))
+      
+
+    
+    vista(opcional):
+     -v_registrado.php
+
+  Login_action.php:
+    
+    modelo:
+      -Verificar un usuari (m_validate_user(datosusuario)) ->
+
+    vista:
+      - v_logeado.php(opcional)
+
+
+queda por definir las funciones de JS:
+
+
+
+
+
+
+
+
+
+
+
+
